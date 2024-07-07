@@ -1,0 +1,13 @@
+*.js eol=lf
+*.jsx eol=lf
+*.ts eol=lf
+*.tsx eol=lf
+*.json eol=lf
+*.yaml eol=lf
+*.md eol=lf
+*.html eol=lf
+*.css eol=lf
+*.scss eol=lf
+*.less eol=lf
+
+# 以上是通用配置

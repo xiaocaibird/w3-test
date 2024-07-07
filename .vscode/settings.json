@@ -1,0 +1,29 @@
+{
+    // 统一一些特殊文件的格式
+    "files.associations": {
+        "tsconfig.json": "jsonc",
+        "tsconfig.*.json": "jsonc"
+    },
+
+    // 统一行尾符
+    "files.eol": "\n",
+
+    // 统一ts 版本
+    "typescript.tsdk": "node_modules/typescript/lib",
+
+    // 这两个要关闭，否则重命名时容易出问题
+    "typescript.preferences.useAliasesForRenames": false,
+    "javascript.preferences.useAliasesForRenames": false,
+
+    "solidity.formatter": "prettier",
+
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[solidity]": {
+        "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
+    }
+}
