@@ -8,11 +8,11 @@ const config: HardhatUserConfig = {
     defaultNetwork: 'sepolia',
     networks: {
         sepolia: {
-            url: 'https://sepolia.base.org',
+            url: 'https://rpc.sepolia.org',
             accounts: [
                 pk.account1,
             ],
-            chainId: 84532,
+            chainId: 11155111,
             gas: 'auto',
             gasPrice: 'auto',
         },
