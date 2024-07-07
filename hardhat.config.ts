@@ -1,7 +1,7 @@
 import type { HardhatUserConfig } from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox-viem';
 
-import pk from './.local/pk.json';
+import pk from './.local/pk';
 
 const config: HardhatUserConfig = {
     solidity: '0.8.24',

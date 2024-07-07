@@ -3,7 +3,7 @@ import { baseSepolia } from 'viem/chains';
 import { privateKeyToAccount } from 'viem/accounts';
 import type { GetContractReturnType } from '@nomicfoundation/hardhat-viem/types';
 
-import pk from '../.local/pk.json';
+import pk from '../.local/pk';
 
 import { abi } from './abi';
 import { Lock$Type } from '../artifacts/contracts/Lock.sol/Lock';

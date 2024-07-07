@@ -29,6 +29,7 @@ contract Lock {
 
     function unlock() public {
         require(isLockAndAllowAdd, 'is not lock!!!');
+        require(msg.sender == owner, "You aren't the owner");
 
         emit UnLock(address(this).balance, block.timestamp);
 
