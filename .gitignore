@@ -10,6 +10,8 @@ npm-debug.log
 .dist
 dist
 
+.local
+
 # 以上为通用配置
 
 .env

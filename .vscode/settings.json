@@ -15,8 +15,6 @@
     "typescript.preferences.useAliasesForRenames": false,
     "javascript.preferences.useAliasesForRenames": false,
 
-    "solidity.formatter": "prettier",
-
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -24,6 +22,6 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[solidity]": {
-        "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }

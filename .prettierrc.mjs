@@ -1,4 +1,6 @@
 export default {
+    plugins: ['prettier-plugin-solidity'],
+
     // 行宽
     printWidth: 80,
 
