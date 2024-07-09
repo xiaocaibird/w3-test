@@ -67,11 +67,13 @@ async function createPool() {
     }) as unknown as GetContractReturnType<typeof UniswapV3FactoryAbi>;
 
     console.log(
-        await contract.write.createPool([
-            '0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14',
-            '0x35b38Ea412a200FbAa56c209542323986c146aa1',
-            FeeAmount.MEDIUM,
-        ]),
+        await contract.write.createPool(
+            [
+                '0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14',
+                '0x35b38Ea412a200FbAa56c209542323986c146aa1',
+                FeeAmount.MEDIUM,
+            ],
+        ),
     );
 }
 
@@ -95,6 +97,7 @@ async function main() {
         // await (poolContract.read as any).token1(),
     );
 }
-createPool().catch(e => console.log(e));
+// createPool().catch(e => console.log(e));
+console.log(currentPoolAddress);
 // 调用main函数来执行脚本
 // main();
