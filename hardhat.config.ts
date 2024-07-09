@@ -8,12 +8,12 @@ import './scripts/ethers';
 
 const config: HardhatUserConfig = {
     solidity: '0.8.24',
-    defaultNetwork: 'sepolia',
+    defaultNetwork: 'local',
     networks: {
-        sepolia: {
-            url: 'https://rpc.sepolia.org',
+        local: {
+            url: 'http://127.0.0.1:8546',
             accounts: [pk.account1],
-            chainId: 11155111,
+            chainId: 1,
             gas: 'auto',
             gasPrice: 'auto',
         },
