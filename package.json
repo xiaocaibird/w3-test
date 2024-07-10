@@ -2,7 +2,10 @@
     "name": "w3-test",
     "version": "1.0.0",
     "description": "",
-    "scripts": {},
+    "scripts": {
+        "local-net": "hardhat node",
+        "deploy-g": "npx hardhat ignition deploy ./ignition/modules/GeraltToken.ts --network localhost"
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",

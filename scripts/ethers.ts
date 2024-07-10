@@ -14,6 +14,7 @@ import UniswapV3Factory from '@uniswap/v3-core/artifacts/contracts/UniswapV3Fact
 import IUniswapV3PoolAbi from './abi/IUniswapV3Pool';
 import UniswapV3FactoryAbi from './abi/UniswapV3Factory';
 import wethabi from './abi/weth';
+import { gtk, weth } from './address';
 import { Token } from '@uniswap/sdk-core';
 
 task('test111', 'Prints the current block number', async (_, { ethers }) => {
@@ -26,21 +27,9 @@ task('test111', 'Prints the current block number', async (_, { ethers }) => {
     }
 
     // 创建代币实例
-    const WETH_TOKEN = new Token(
-        31337,
-        '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-        18,
-        'WETH',
-        'Wrapped Ether',
-    );
+    const WETH_TOKEN = new Token(31337, weth, 18, 'WETH', 'Wrapped Ether');
 
-    const G_TOKEN = new Token(
-        31337,
-        '0x00B0517de6b2b09aBD3a7B69d66D85eFdb2c7d94',
-        18,
-        'GERALTTK',
-        'GeraltToken',
-    );
+    const G_TOKEN = new Token(31337, gtk, 18, 'GERALTTK', 'GeraltToken');
 
     const CurrentConfig: ExampleConfig = {
         tokens: {
@@ -86,9 +75,15 @@ task('test111', 'Prints the current block number', async (_, { ethers }) => {
     // });
     // console.log(res);
     const contract = new ethers.Contract(
+        FACTORY_ADDRESS,
+        UniswapV3Factory.abi,
+        signer,
+    );
+    console.log(await contract.createPool(gtk, weth, FeeAmount.MEDIUM));
+    const contract2 = new ethers.Contract(
         currentPoolAddress,
         IUniswapV3PoolAbi,
         signer,
     );
-    console.log(await contract.token0());
+    console.log(await contract2.token0());
 });
