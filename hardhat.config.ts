@@ -8,6 +8,14 @@ import './scripts/ethers';
 
 const config: HardhatUserConfig = {
     solidity: '0.8.24',
+    networks: {
+        hardhat: {
+            forking: {
+                url: `https://mainnet.infura.io/v3/${pk.infuraApiKey}`,
+                blockNumber: 20273622,
+            },
+        },
+    },
 };
 
 export default config;
