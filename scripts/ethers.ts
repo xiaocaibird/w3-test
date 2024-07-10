@@ -9,6 +9,7 @@ import IUniswapV3Pool from '@uniswap/v3-core/artifacts/contracts/interfaces/IUni
 import UniswapV3Factory from '@uniswap/v3-core/artifacts/contracts/UniswapV3Factory.sol/UniswapV3Factory.json';
 import IUniswapV3PoolAbi from './abi/IUniswapV3Pool';
 import UniswapV3FactoryAbi from './abi/UniswapV3Factory';
+import wethabi from './abi/weth';
 import { Token } from '@uniswap/sdk-core';
 
 task('test111', 'Prints the current block number', async (_, { ethers }) => {
@@ -53,15 +54,25 @@ task('test111', 'Prints the current block number', async (_, { ethers }) => {
     });
 
     const wallet = new ethers.Wallet(pk.account1);
-    const provider = new ethers.JsonRpcProvider('http://127.0.0.1:8546');
+    const provider = new ethers.JsonRpcProvider('http://127.0.0.1:8545');
     const signer = wallet.connect(provider);
-    console.log(
-        await signer.sendTransaction({
-            to: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8',
-            from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
-            value: ethers.parseUnits('10', 'ether'),
-        }),
+
+    const contract = new ethers.Contract(
+        '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        wethabi,
+        signer,
     );
+    console.log(
+        await contract.deposit({ value: ethers.parseUnits('100', 'ether') }),
+    );
+    // console.log(
+    //     await signer.sendTransaction({
+    //         to: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8',
+    //         from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    //         value: ethers.parseUnits('1000', 'ether'),
+    //     }),
+    // );
+    // console.log(await provider.getBalance('0x70997970C51812dc3A010C7d01b50e0d17dc79C8'));
     // const gasPrice = ethers.parseUnits('40', 'gwei');
     // // const res = signer.sendTransaction({
     // //     to: '0x0227628f3F023bb0B980b67D528571c95c6DaC1c',
